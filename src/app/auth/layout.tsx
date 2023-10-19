@@ -1,6 +1,5 @@
 "use client"
 import '../globals.css'
-import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
 import {usePathname} from "next/navigation";
 import {checkPublicRoute} from "@/app/functions/checkPublicRoute";
@@ -24,8 +23,9 @@ export default function RootLayout({
             <div className="h-5/6 w-full flex">
                 <main className="flex items-center justify-center w-full h-full">
                     <div className={`flex h-full w-5/6 p-4`}>
-                        <div className={`h-4/5 w-1/2 flex items-center justify-center`}>
+                        <div className={`h-4/5 w-1/2 flex flex-col items-center justify-center`}>
                             <Title/>
+                            <img className={`rounded`} width={200} src="/assets/NaturatinsMap.png" alt="NaturatinsMap Logo"/>
                         </div>
                         <div className={`w-1/2`}>
                             {children}
