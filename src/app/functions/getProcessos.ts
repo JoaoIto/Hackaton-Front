@@ -1,13 +1,6 @@
 import { getApiUrl } from "@/app/functions/getApiUrl";
 import { getStorageItem } from "../utils/getStorageItem";
-
-export interface Processo {
-    status: string;
-    nomeProcesso: string;
-    tecnico: string;
-    data: string;
-    regional: string;
-}
+import {Processo} from "@/app/interface/Processos";
 
 export async function getProcessos(): Promise<Processo[]> {
     const userToken = getStorageItem(process.env.ACESS_TOKEN as string);

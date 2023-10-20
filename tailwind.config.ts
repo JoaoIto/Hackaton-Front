@@ -20,7 +20,8 @@ const config: Config = {
       verdeEscuroGradient: "#456032",
       verdeClaro: "#30D64C",
       verdeBackground: "#60B522",
-      vermelho: "#CF0E0E"
+      vermelho: "#CF0E0E",
+      laranja: "#ffa500"
     },
     extend: {
       backgroundImage: {

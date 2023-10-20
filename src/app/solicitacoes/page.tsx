@@ -30,7 +30,6 @@ export default function SolicitcoesPage(){
                     <TableRow>
                         <TableCell className={`text-2xl`}>Status</TableCell>
                         <TableCell className={`text-2xl`}>Nome do processo</TableCell>
-                        <TableCell className={`text-2xl`}>Técnico</TableCell>
                         <TableCell className={`text-2xl`}>Data</TableCell>
                         <TableCell className={`text-2xl`}>Regional</TableCell>
                     </TableRow>
@@ -40,7 +39,6 @@ export default function SolicitcoesPage(){
                         <TableRow className={`p-2 bg-cinzaClaro`} key={processo.nomeProcesso}>
                             <TableCell>{processo.status}</TableCell>
                             <TableCell>{processo.nomeProcesso}</TableCell>
-                            <TableCell>{processo.tecnico}</TableCell>
                             <TableCell>{processo.data}</TableCell>
                             <TableCell>{processo.regional}</TableCell>
                         </TableRow>
