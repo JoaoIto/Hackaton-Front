@@ -6,7 +6,7 @@ import {checkPublicRoute} from "@/app/functions/checkPublicRoute";
 import PrivateRoute from "@/app/components/PrivateRoute";
 import Header from "@/app/components/style/Header";
 import Sidebar from "@/app/components/style/Sidebar";
-import AuthLayout from './auth/layout';
+import Footer from "@/app/components/style/Footer";
 
 const inter = Roboto({subsets: ['latin'], weight: "400"})
 
@@ -36,6 +36,7 @@ export default function RootLayout({
                         </PrivateRoute>
                     )}
             </div>
+            <Footer/>
         </div>
         </body>
         </html>
