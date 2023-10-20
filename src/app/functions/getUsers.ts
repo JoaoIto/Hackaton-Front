@@ -1,4 +1,3 @@
-"use client"
 import {getApiUrl} from "@/app/functions/getApiUrl";
 
 export async function getUsers(){
