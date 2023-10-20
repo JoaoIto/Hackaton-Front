@@ -11,19 +11,19 @@ export default function AgenciasPage() {
             distanciaEstimada: 10,
             tempoEstimadoLocomocao: 30,
             densidadeProcessos: 100,
-            dificuldadeRelativa: (10 + 30 + 100) / 3,
+            dificuldadeRelativa: ((10 + 30 + 100) / 3).toFixed(2),
         },
         {
             nomeAgencia: "Agência 2",
             distanciaEstimada: 20,
             tempoEstimadoLocomocao: 40,
             densidadeProcessos: 200,
-            dificuldadeRelativa: (20 + 40 + 200) / 3,
+            dificuldadeRelativa: ((20 + 40 + 200) / 3).toFixed(2),
         },
     ]);
     const [agenciaSelecionada, setAgenciaSelecionada] = useState(null);
-
     const tabela = useRef(null);
+    const [numSolicitacoes, setNumSolicitacoes] = useState(0);
 
     const handleSolicitar = () => {
         const novaSolicitacao = {
@@ -32,6 +32,8 @@ export default function AgenciasPage() {
             agencia: agenciaSelecionada,
             data: new Date().toISOString(),
         };
+
+        setNumSolicitacoes(numSolicitacoes + 1)
     };
     return (
         <>
@@ -56,6 +58,7 @@ export default function AgenciasPage() {
                             <TableCell>{agencia.densidadeProcessos}</TableCell>
                             <TableCell>{agencia.dificuldadeRelativa}</TableCell>
                             <Button
+                                variant={"contained"}
                                 className={`bg-verdeBackground p-2 text-white text-center items-center`}
                                 onClick={() => handleSolicitar()}
                             >

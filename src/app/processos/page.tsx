@@ -50,7 +50,7 @@ export default function ProcessosPage() {
                             <TableCell>{processo.tecnico}</TableCell>
                             <TableCell>{processo.data}</TableCell>
                             <TableCell>{processo.regional}</TableCell>
-                        <Button
+                        <Button variant={"contained"}
                         className={`bg-verdeBackground p-2 text-white text-center items-center self-center`}
                         onClick={mostrarAgencias}
                         >
