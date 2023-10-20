@@ -13,6 +13,15 @@ export default function Header() {
         setPesquisaProcesso(event.target.value);
     };
 
+    const handleSearchSubmit = () => {
+        const searchData = {
+            nome: pesquisaProcesso,
+        };
+        console.log('Dados da Pesquisa:', searchData);
+    };
+
+
+
 
     const toggleDashboard = () => {
         router.push('/')
@@ -41,6 +50,7 @@ export default function Header() {
                     />
 
                     <Button
+                        onClick={handleSearchSubmit}
                         className={`bg-verdeClaro`}
                         variant="contained"
                         color="primary"

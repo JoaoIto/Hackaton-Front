@@ -1,12 +1,12 @@
 "use client"
 import './globals.css'
-import type {Metadata} from 'next'
 import {Roboto} from 'next/font/google'
 import {usePathname} from "next/navigation";
 import {checkPublicRoute} from "@/app/functions/checkPublicRoute";
 import PrivateRoute from "@/app/components/PrivateRoute";
 import Header from "@/app/components/style/Header";
 import Sidebar from "@/app/components/style/Sidebar";
+import AuthLayout from './auth/layout';
 
 const inter = Roboto({subsets: ['latin'], weight: "400"})
 
@@ -16,7 +16,6 @@ export default function RootLayout({
                                    }: {
     children: React.ReactNode
 }) {
-
 
     const pathname = usePathname();
     const isPublicPage = checkPublicRoute(pathname!);
@@ -30,14 +29,12 @@ export default function RootLayout({
 
             <div className={`flex`}>
                 <Sidebar/>
-                <main className="h-full w-4/5">
                     {isPublicPage && children}
                     {!isPublicPage && (
                         <PrivateRoute>
                             {children}
                         </PrivateRoute>
                     )}
-                </main>
             </div>
         </div>
         </body>

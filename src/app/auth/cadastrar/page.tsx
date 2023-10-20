@@ -1,21 +1,23 @@
 "use client"
-
 import {z} from "zod";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {Button, Grid, TextField} from "@mui/material";
-import {ChangeEvent, useState} from "react";
+import {getApiUrl} from "../../functions/getApiUrl"
 import {useRouter} from "next/navigation";
 
 const login = z
     .object({
         nomeCompleto: z.string(),
+        usuario: z.string(),
         email: z.string().email({message: "Isso deve ser um email válido!"}).regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),
         senha: z.string().min(6, {message: "Deve ser uma senha válida! Deve ter 6 dígitos!"})
     })
     .transform((data) => ({
-        nome: data.nomeCompleto,
+        name: data.nomeCompleto,
         email: data.email,
-        senha: data.senha
+        password: data.senha,
+        userName: data.usuario,
+        status: "ACTIVE",
     }));
 
 type LoginValues = z.infer<typeof login>;
@@ -28,8 +30,23 @@ export default function SignUpPage() {
 
     const router = useRouter();
 
-    const onSubmit: SubmitHandler<LoginValues> = (data) => {
+    const onSubmit: SubmitHandler<LoginValues> = async (data) => {
         console.log(data);
+        const response = await fetch(getApiUrl('/users'), {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            return data;
+            router.push("/auth/login");
+        } else {
+            // handle error
+        }
     };
 
     const routerLogin = () => {
@@ -48,12 +65,25 @@ export default function SignUpPage() {
                             label="Nome completo:"
                             variant="outlined"
                             fullWidth
-                            error={!!errors.nome}
-                            helperText={errors.nome?.message || ' '}
-                            {...register('nome', {required: "Nome Completo é obrigatório!"})}
+                            error={!!errors.name}
+                            helperText={errors.name?.message || ' '}
+                            {...register('name', {required: "Nome Completo é obrigatório!"})}
                         />
 
                     </Grid>
+
+                    <Grid className={`w-full`}>
+                        <TextField
+                            required
+                            label="Nome de usuário:"
+                            variant="outlined"
+                            fullWidth
+                            error={!!errors.userName}
+                            helperText={errors.userName?.message || ' '}
+                            {...register('userName', {required: "Nome de usuário é obrigatório!"})}
+                        />
+                    </Grid>
+
                     <Grid className={`w-full`}>
                         <TextField
                             required
@@ -74,9 +104,9 @@ export default function SignUpPage() {
                             label="Senha:"
                             variant="outlined"
                             fullWidth
-                            error={!!errors.senha}
-                            helperText={errors.senha?.message || ' '}
-                            {...register('senha', {required: "A senha é obrigatória!"})}
+                            error={!!errors.password}
+                            helperText={errors.password?.message || ' '}
+                            {...register('password', {required: "A senha é obrigatória!"})}
                         />
                     </Grid>
 
@@ -86,9 +116,9 @@ export default function SignUpPage() {
                         label="Repetir senha:"
                         variant="outlined"
                         fullWidth
-                        error={!!errors.senha}
-                        helperText={errors.senha?.message || ' '}
-                        {...register('senha', {required: "A senha é obrigatória!"})}
+                        error={!!errors.password}
+                        helperText={errors.password?.message || ' '}
+                        {...register('password', {required: "A senha é obrigatória!"})}
                     />
 
                     <div className={`space-x-4`}>
