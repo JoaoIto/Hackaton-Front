@@ -3,7 +3,7 @@
 Projeto de gestão e solicitação de processos para licenciamento ambiental
 para propriedades agrícolas.
 
-
+<img src="./public/assets/printInicial.png">
 
 ## Desenvolvedores:
 
