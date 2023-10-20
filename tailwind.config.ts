@@ -11,7 +11,7 @@ const config: Config = {
       white: "#fff",
       black: "#000",
       cinzaClaro: "#F5F5F5",
-      cinzaTraco: "#ADADAD",
+      cinza: "#ADADAD",
       azulEscuro: "#00255B",
       azulClaroGradient: "#40BAFF",
       azulEscuroGradient: "#00255B",

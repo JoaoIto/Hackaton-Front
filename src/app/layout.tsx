@@ -1,13 +1,14 @@
 "use client"
 import './globals.css'
 import type {Metadata} from 'next'
-import {Inter} from 'next/font/google'
+import {Roboto} from 'next/font/google'
 import {usePathname} from "next/navigation";
 import {checkPublicRoute} from "@/app/functions/checkPublicRoute";
 import PrivateRoute from "@/app/components/PrivateRoute";
 import Header from "@/app/components/style/Header";
+import Sidebar from "@/app/components/style/Sidebar";
 
-const inter = Inter({subsets: ['latin']})
+const inter = Roboto({subsets: ['latin'], weight: "400"})
 
 
 export default function RootLayout({
@@ -22,19 +23,22 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body className={inter.className}>
-        <div className="flex">
+        <div className="flex flex-col">
             <div>
                 <Header/>
             </div>
 
-            <main className="h-full w-full">
-                {isPublicPage && children}
-                {!isPublicPage && (
-                    <PrivateRoute>
-                        {children}
-                    </PrivateRoute>
-                )}
-            </main>
+            <div className={`flex`}>
+                <Sidebar/>
+                <main className="h-full w-4/5">
+                    {isPublicPage && children}
+                    {!isPublicPage && (
+                        <PrivateRoute>
+                            {children}
+                        </PrivateRoute>
+                    )}
+                </main>
+            </div>
         </div>
         </body>
         </html>
