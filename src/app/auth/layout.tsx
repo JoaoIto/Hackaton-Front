@@ -19,17 +19,11 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body className={inter.className}>
-        <div className={`h-full flex items-center justify-center bg-gradient-to-l from-verdeClaro to-verdeEscuroGradient`}>
+        <div className={`h-full flex items-center justify-center bg-gradient-to-t from-verdeEscuroGradient to-verdeClaro`}>
             <div className="h-5/6 w-full flex">
                 <main className="flex items-center justify-center w-full h-full">
-                    <div className={`flex h-full w-5/6 p-4`}>
-                        <div className={`h-4/5 w-1/2 flex flex-col items-center justify-center`}>
-                            <Title/>
-                            <img className={`rounded`} width={200} src="/assets/NaturatinsMap.png" alt="NaturatinsMap Logo"/>
-                        </div>
-                        <div className={`w-1/2`}>
+                    <div className={`flex h-full w-1/2 p-4`}>
                             {children}
-                        </div>
                     </div>
                 </main>
             </div>

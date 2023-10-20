@@ -15,16 +15,15 @@ const config: Config = {
       azulEscuro: "#00255B",
       azulClaroGradient: "#40BAFF",
       azulEscuroGradient: "#00255B",
-      verdeEscuroGradient: "#006400",
+      verdeEscuroGradient: "#456032",
       verdeClaro: "#30D64C",
+      verdeBackground: "#60B522",
       vermelho: "#CF0E0E"
     },
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-            'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+        'NaturatinsMapSemFundo': "url('/assets/NaturatinsMapSemFundo.png')",
+      }
     }
     },
   plugins: [],

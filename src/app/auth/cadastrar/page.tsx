@@ -39,7 +39,7 @@ export default function SignUpPage() {
     return (
         <>
             <div
-                className={`h-full w-full space-y-2 flex flex-col justify-center text-black bg-cinzaClaro rounded p-4`}>
+                className={`h-full w-full space-y-2 flex flex-col justify-center text-black bg-[url('/assets/NaturatinsMapSemFundo.png')] bg-opacity-60 bg-multiply bg-cover bg-cinzaClaro rounded p-4`}>
                 <form className={`justify-center space-y-4`} onSubmit={handleSubmit(onSubmit)}>
                     <h2 className={`text-3xl p-5 w-full flex text-start`}>Cadastrar</h2>
                     <Grid className={`w-full`}>
